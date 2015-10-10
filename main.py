@@ -56,6 +56,7 @@ def hash():
     return render_template('hash.html', username=username, hash_hex=hash_hex)
 
 @app.route("/tweet", methods=["POST"])
+def tweet();
     access_hash = request.form.get('hash', None)
     message = request.form.get('message', None)
 
