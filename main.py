@@ -25,7 +25,7 @@ def login():
     auth = tweepy.OAuthHandler(TWITTER_CONSUMER_KEY, TWITTER_CONSUMER_SECRET, "http://soinsd-tweeter.herokuapp.com/callback")
     redirect_url = auth.get_authorization_url(signin_with_twitter=True)
     session['request_token'] = auth.request_token
-    redirect(redirect_url)
+    return redirect(redirect_url)
 
 @app.route("/callback")
 def callback():
@@ -45,7 +45,7 @@ def callback():
     user = models.User(user.screen_name, auth.access_token, auth.access_token_secret, hash_hex)
     db.session.add(user)
     db.session.commit()
-    redirect("/hash")
+    return redirect("/hash")
 
 @app.route("/hash")
 def hash():
