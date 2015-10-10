@@ -49,7 +49,7 @@ def callback():
 
 @app.route("/hash")
 def hash():
-    hash_hex = session.get('hash_hex', None)
+    hash_hex = session.get('auth_hash', None)
     username = session.get('username', None)
     if not (hash_hex and username):
         abort(404)
