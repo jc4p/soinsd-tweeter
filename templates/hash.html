@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% block content %}
+    <h3>Hey there {{ username }},</h3>
+    <p style="display: inline-block">To tweet from your Particle Photon, give it this code:</p>
+    <input type="text" id="image-url" class="form-control" value="{{ hash_hex }}" disabled style="display:inline-block" />
+{% endblock %}
+{% block additional_js %}<script src="{{ url_for('static', filename='main.js') }}"></script>
+{% endblock %}
