@@ -29,7 +29,7 @@ def login():
 
 @app.route("/callback")
 def callback():
-    auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
+    auth = tweepy.OAuthHandler(TWITTER_CONSUMER_KEY, TWITTER_CONSUMER_SECRET)
     verifier = request.args.get('oauth_verifier', '')    
     auth.request_token = session.pop('request_token', None)
     auth.get_access_token(verifier)
