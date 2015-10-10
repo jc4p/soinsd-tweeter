@@ -61,7 +61,7 @@ def tweet():
     message = request.form.get('message', None)
 
     if not (access_hash and message):
-        raise ValueError(access_hash)
+        raise ValueError(request.form)
         abort(400)
     
     user = models.User.get_by_access_hash(access_hash)
