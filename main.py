@@ -57,8 +57,8 @@ def hash():
 
 @app.route("/tweet", methods=["POST"])
 def tweet():
-    access_hash = request.form.get('hash', None)
-    message = request.form.get('message', None)
+    access_hash = request.get_json().get('hash', None)
+    message = request.get_json().get('message', None)
 
     if not (access_hash and message):
         raise ValueError(request.form)
