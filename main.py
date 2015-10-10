@@ -23,8 +23,8 @@ def index():
 @app.route("/login")
 def login():
     auth = tweepy.OAuthHandler(TWITTER_CONSUMER_KEY, TWITTER_CONSUMER_SECRET, "http://soinsd-tweeter.herokuapp.com/callback")
+    redirect_url = auth.get_authorization_url(signin_with_twitter=True)
     session['request_token'] = auth.request_token
-    redirect_url = auth.get_authorization_url()
     redirect(redirect_url)
 
 @app.route("/callback")
