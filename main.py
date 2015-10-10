@@ -55,6 +55,19 @@ def hash():
         abort(404)
     return render_template('hash.html', username=username, hash_hex=hash_hex)
 
+@app.route("/tweet", methods=["POST"])
+    access_hash = request.form.get('hash', None)
+    message = request.form.get('message', None)
+
+    if not (access_hash and message):
+        abort(400)
+    
+    user = models.User.get_by_access_hash(access_hash)
+    auth = tweepy.OAuthHandler(TWITTER_CONSUMER_KEY, TWITTER_CONSUMER_SECRET)
+    auth.set_access_token(user.accessToken, user.accessTokenSecret)
+    api.update_status(status=message, lat="32.713729", long="-117.158724")
+
+    return "OK"
 
 if __name__ == '__main__':
     app.run()
