@@ -66,6 +66,7 @@ def tweet():
     user = models.User.get_by_access_hash(access_hash)
     auth = tweepy.OAuthHandler(TWITTER_CONSUMER_KEY, TWITTER_CONSUMER_SECRET)
     auth.set_access_token(user.accessToken, user.accessTokenSecret)
+    api = tweepy.API(auth)
     api.update_status(status=message, lat="32.713729", long="-117.158724")
 
     return "OK"
