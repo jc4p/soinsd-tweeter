@@ -1,6 +1,8 @@
 {% extends "base.html" %}
 {% block content %}
-    <a id="login-button" class="btn btn-primary" href="/login">Login with Twitter</a>
+    <form action="/login">
+        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">Login with Twitter</button>
+    </form>
 {% endblock %}
 {% block additional_js %}<script src="{{ url_for('static', filename='main.js') }}"></script>
 {% endblock %}

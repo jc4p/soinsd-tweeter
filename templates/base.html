@@ -5,14 +5,29 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>{% block title %}soinsd-tweeter{% endblock %}</title>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.5/material.indigo-pink.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en" rel="stylesheet">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.5/material.blue_grey-pink.min.css" /> 
         <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
     </head>
-    <body>
-        <div class="container">{% block content %}{% endblock %}
+    <body class="mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
+        <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+        <header class="mdl-layout__header">
+        <div class="mdl-layout__header-row">
+          <span class="mdl-layout-title">#SOinSD Tweeter</span>
         </div>
-
+        </header>
+        <main class="mdl-layout__content">
+            <div class="mdl-grid" id="content">
+                <div class="mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone mdl-typography--text-center">
+                    {% block content %}{% endblock %}
+                </div>
+            </div>
+        </main>
+        </div>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script src="https://storage.googleapis.com/code.getmdl.io/1.0.5/material.min.js"></script>
         {% block additional_js %}{% endblock %}
     </body>
 </html>

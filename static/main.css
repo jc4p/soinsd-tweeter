@@ -1,3 +1,11 @@
-.container {
-    margin-top: 20px;
+html, body {
+  font-family: 'Roboto', 'Helvetica', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+#content {
+    padding: 8px;
+    padding-top: 48px;
+    max-width: 860px;
 }
