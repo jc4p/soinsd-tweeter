@@ -1,0 +1,114 @@
+{% extends "base.html" %}
+{% block additional_header %}
+<div class="mdl-layout__tab-bar mdl-js-ripple-effect">
+  <a href="#fixed-tab-1" class="mdl-layout__tab is-active">Getting Started</a>
+  <a href="#fixed-tab-2" class="mdl-layout__tab">Let There Be Light</a>
+  <a href="#fixed-tab-3" class="mdl-layout__tab">Push It (Real Good)</a>
+</div>
+{% endblock %}
+{% block content %}
+  <main class="mdl-layout__content">
+    <section class="mdl-layout__tab-panel is-active" id="fixed-tab-1">
+      <div class="page-content">
+        <h4>Getting Started</h4>
+        <a href="{{ url_for('static', filename='images/1.jpg') }}" target="_blank" class="card-link">
+        <div id="getting-started-image-1" class="image-card mdl-card mdl-shadow--2dp">
+            <div class="mdl-card__title mdl-card--expand"></div>
+            <div class="mdl-card__actions">
+                <span>All you need (click image to expand)</span>
+            </div>
+        </div>
+        </a>
+        <br>
+        <p>First things first, gather your parts. You'll need:</p>
+        <ul>
+        <li>A computer</li>
+        <li>A smartphone (you can get by with just your computer, but it's easier)</li>
+        <li>A Particle Photon with a microUSB cable</li>
+        <li>A breadboard</li>
+        <li>3 short wires</li>
+        <li>A LED</li>
+        <li>A resistor</li>
+        <li>A pushbutton</li>
+        </ul>
+
+        <p>Before we get to have any fun, you'll need to connect your Photon to the internet. Just to be safe, let's reset it first before you do that.</p>
+        <p>To reset your Photon, first connect the USB cable to your computer then hold down the SETUP button on the Photon. The LED next to the button should now be blinking blue. If it's not, find Kasra.</p>
+        <p>After you've made sure your Photon is in setup mode, follow the setup instructions <a href="https://docs.particle.io/guide/getting-started/hackathon/photon/#setup" target="_blank">provided by Particle</a>. Just follow along with the "Claiming and Connecting" section, then come back here and click on "Let There Be Light" in the nav at the top.</p>
+        </div>
+      </div>
+    </section>
+    <section class="mdl-layout__tab-panel" id="fixed-tab-2">
+      <div class="page-content">
+        <h4>Let there be light!</h4>
+        <p>Before we get started doing anything crazy, let's setup a really simple circuit that does nothing but light up the LED. Here's what it looks like:</p>
+        <a href="{{ url_for('static', filename='images/2.jpg') }}" target="_blank" class="card-link"><div id="let-there-be-light-image-1" class="image-card mdl-card mdl-shadow--2dp"></div></a>
+        <br>
+        <p>To create this circuit:</p>
+        <ul>
+        <li>Plug your Photon into the breadboard, with the left legs going into the left side of the middle ravine and the right legs going onto the right side.</li>
+        <li>Plug the longer leg of the LED into any of the holes on the same line as the <strong>3V3</strong> pin.</li>
+        <li>Plug the shorter leg of the LED into any of the holes on the same line as the <strong>GND</strong> pin.</li>
+        </ul>
+
+        <p>That's it! Your LED should now be lit up. If it isn't, there's either something wrong with the wiring or your Photon isn't getting enough power from the USB cable. Either way, find Kasra and we'll figure it out.</p>
+
+        <p>You may have noticed that it's <strong>BRIGHT AS ALL HELL</strong>, that's because we're giving the LED 3V of power, in the spirit of sanity (and not burning out our lights) let's lower the strength of the light. We do this by lowering the current going to it, via a resistor. Here's what the modified circuit looks like, after adding in a resistor:</p>
+
+        <a href="{{ url_for('static', filename='images/3.jpg') }}" target="_blank" class="card-link"><div id="let-there-be-light-image-2" class="image-card mdl-card mdl-shadow--2dp"></div></a>
+        <br>
+        <p>Whoa, so much changed! It's because now that we want to get more complicated, we can't simply connect directly to the Photon anymore without getting really cramped on our breadboard. To create this circuit:</p>
+        <ul>
+        <li>Connect a wire from any of the <strong>GND</strong> pins on the Photon to any of the holes on the <strong>-</strong> rail.</li>
+        <li>Connect a wire from the <strong>3V3</strong> pin on the Photon to any of the holes on the <strong>+</strong> rail.</li>
+        <li>Connect one end of the resistor (doesn't matter which, they're bidirectional) to any of the pins on the same <strong>+</strong> rail.</li>
+        <li>Connect the other end of the resistor into any empty row you feel like.</li>
+        <li>Plug the long leg of the LED into any hole on the same row as the resistor.</li>
+        <li>Plug the short leg of the LED into any hole on the <strong>-</strong> rail.</li>
+        </ul>
+
+        <p>That's it! You should now have a dimmer light lighting up. You can turn the light on and off by breaking the circuit at any point, try removing the resistor from one of the two ends and plugging it back in to see.</p>
+
+        <p>Now that you have the basics down, click "Push It" in the nav at the top to start the final stage.</p>
+      </div>
+    </section>
+    <section class="mdl-layout__tab-panel" id="fixed-tab-3">
+      <div class="page-content">
+      <p>Tab 3</p>
+      </div>
+    </section>
+  </main>
+
+  <style type="text/css">
+    a.card-link {
+        text-decoration: none;
+        display: block;
+        width: 320px;
+    }
+    .image-card {
+        width: 320px;
+        height: 320px;
+    }
+    .mdl-card__actions {
+        height: 52px;
+        padding: 16px;
+        background: rgba(0, 0, 0, 0.2);
+    }
+    .mdl-card__actions span {
+        color: #fff;
+        font-size: 14px;
+        font-weight: 500;
+    }
+    #getting-started-image-1 {
+        background: url("{{ url_for('static', filename='images/1.jpg') }}") center / cover;
+    }
+    #let-there-be-light-image-1 {
+        background: url("{{ url_for('static', filename='images/2.jpg') }}") center / cover;
+    }
+    #let-there-be-light-image-2 {
+        background: url("{{ url_for('static', filename='images/3.jpg') }}") center / cover;
+    }
+  </style>
+{% endblock %}
+{% block additional_js %}<script src="{{ url_for('static', filename='main.js') }}"></script>
+{% endblock %}

@@ -6,5 +6,10 @@ html, body {
 
 #content {
     padding: 8px;
-    max-width: 860px;
+    max-width: 620px;
+}
+
+.guide > .mdl-card__media {
+    width: 320px;
+    height: 320px;
 }

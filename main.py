@@ -55,6 +55,10 @@ def hash():
         abort(404)
     return render_template('hash.html', username=username, hash_hex=hash_hex)
 
+@app.route("/guide")
+def guide():
+    return render_template('guide.html')
+
 @app.route("/tweet", methods=["POST"])
 def tweet():
     access_hash = request.get_json().get('hash', None)
