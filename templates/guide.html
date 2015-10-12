@@ -72,7 +72,28 @@
 </section>
 <section class="mdl-layout__tab-panel" id="tab-3">
   <div class="page-content">
-  <p>Tab 3</p>
+  <h3>Push It To The Limit</h3>
+  
+  <p>Wow did you know Georgio Moroder co-wrote that song? Crazy.</p>
+  <p>Anyway, in the previous lesson we only utilized the Photon for supplying electricity to our circuit, we could've really just used a battery and the LED would've still lit up all the same. To make the final circuit, we're going to utilize more of its potential.</p>
+  <p>Before we get to coding the Photon, let's setup the circuit. It's a little different, so before you start working on it clear everything off the breadboard except the Photon. Here's what we're going to assemble:</p>
+  <a href="{{ url_for('static', filename='images/4.jpg') }}" target="_blank" class="card-link"><div id="push-it-image-1" class="image-card mdl-card mdl-shadow--2dp"></div></a>
+  <br>
+  <p>Keep in mind that it doesn't really matter where you place the individual pieces, as long as they'r connected to each other correctly. To create this circuit:</p>
+  <ul>
+  <li>Connect a wire from any of the <strong>GND</strong> pins on the Photon to any of the holes on the <strong>-</strong> rail.</li>
+  <li>Connect one end of a resistor to the D0 pin on the Photon.</li>
+  <li>Connect the other end of the resistor into any empty row.</li>
+  <li>Plug the long leg of the LED into any hole on the same row as the resistor.</li>
+  <li>Plug the short leg of the LED into any hole on the <strong>-</strong> rail.</li>
+  <li>Plug the pushbutton onto the breadboard. It's designed to fit ontop of the center ravine. It has four legs, be sure to not put any of them on the same row as the LED and resistor.</li>
+  <li>Connect a wire to the D2 pin on the Photon.</li>
+  <li>Connect the other end of the wire to the top left leg of the pushbutton.</li>
+  <li>Connect a wire to the bottom right leg of the pushbutton.</li>
+  <li>Connect the other end of the wire to any hole on the <strong>-</strong> rail.</li>
+  </ul>
+  
+  <p>Okay, that's all for the wiring. But right now your circuit doesn't do anything. That's because we're using the digital input/output pins of the Photon to give the circuit life, but we're not actually sending anything out of on those pins yet. Let's do that.</p>
   </div>
 </section>
 
@@ -104,6 +125,9 @@
     }
     #let-there-be-light-image-2 {
         background: url("{{ url_for('static', filename='images/3.jpg') }}") center / cover;
+    }
+    #push-it-image-1 {
+        background: url("{{ url_for('static', filename='images/4.jpg') }}") center / cover;
     }
   </style>
 {% endblock %}

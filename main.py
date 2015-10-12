@@ -17,8 +17,11 @@ import models
 
 @app.route("/")
 def index():
-    return render_template('index.html')
+    return render_template('guide.html')
 
+@app.route("/register")
+def register():
+    return render_template('register.html')
 
 @app.route("/login")
 def login():
@@ -54,10 +57,6 @@ def hash():
     if not (hash_hex and username):
         abort(404)
     return render_template('hash.html', username=username, hash_hex=hash_hex)
-
-@app.route("/guide")
-def guide():
-    return render_template('guide.html')
 
 @app.route("/tweet", methods=["POST"])
 def tweet():
