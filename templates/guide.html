@@ -94,6 +94,28 @@
   </ul>
   
   <p>Okay, that's all for the wiring. But right now your circuit doesn't do anything. That's because we're using the digital input/output pins of the Photon to give the circuit life, but we're not actually sending anything out of on those pins yet. Let's do that.</p>
+  
+  <p>To control the Photon, we're going to program it using Particle's web interface. Open up the code editor by visiting <a href="https://build.particle.io/build" target="_blank">https://build.particle.io/build</a> and login with the account you setup when first connecting the Photon to the internet.
+  
+  <p>Hit "Create New App" and give your app a name. Before we get down to coding, we'll need to add the HTTPClient library to let us do network calls. To do this click on the "Libraries" button on the bottom left of the page (fourth from bottom) and click on <strong>HttpClient</strong> under Community Libraries. After that, hit the big <strong>Include In App</strong> button and we're off to the races.</p>
+  
+  <p>What we just did added a basic networking library to the app we're writing, so that we can do web calls. Now that we're have all our ducks in a row, copy the code from <a href="https://gist.github.com/jc4p/82c00f0f394e01458a71" target="_blank">https://gist.github.com/jc4p/82c00f0f394e01458a71</a> and replace the contents of the Particle editor with it. Note: You can click <em>Raw</em> to access a easier to copy version of the code.</p>
+  
+  <p>The code you just copy pasted seems like it's doing a lot of stuff, but it's pretty simple. When the Photon first turns on, it runs the code in the <code>setup()</code> method once, then runs the code in the <code>loop()</code> repeatedly until it is turned off.</p>
+  
+  <p>Right now, the code you have is setup to simply turn the light on and off when you click the button. You can test this out by hitting the <strong>Flash</strong> button (the lightning bolt on the top left of the page). After a few seconds, your Photon should be blinking blue. When it is, tap the button on the breadboard and bam, the LED should turn on. If it doesn't, find Kasra and let's do some debugging.</p>
+  
+  <p>Lighting an LED is cool, but it's not as cool as sending a tweet. To finish up and start tweeting, we'll need to give the app a token so it can tweet on your behalf. This can be a complicated process, but luckily the complicated part's already done. All you need to do is visit <a href="http://soinsd-tweeter.herokuapp.com/register">http://soinsd-tweeter.herokuapp.com/register</a> and click the <strong>Login with Twitter</strong> button. After you login, the page will give you a code. Copy the <em>entire</em> code (it's long, but you can double click on it to select it all) and paste it between the quotes on line 4, replacing the <em>INSERT_YOUR_CODE_HERE</em> with your actual code.</p>
+  
+  <p>Now here's the hardest part: Do you want to customize the tweet? Right now it's set to tweet "Hello from #SOinSD", but you can change that on line 5 to be anything. Just be sure to keep it under 140 characters, and if you want it to show up live on our streaming walls include the hashtag #SOinSD.</p>
+  
+  <p>After you setup the authentication, all that's left is actually enabling the tweeting. You do this by removing the two slashes at the beginning of line 29 to uncomment the call to our <code>tweet()</code> method.</p>
+  
+  <p>Aand... that's it. Hit <strong>Flash</strong> one more time, wait till the Photon lights up blue, and the next time you tap the button it'll not only light up the LED but also tweet on your behalf. Don't worry about spamming, it'll only ever tweet once so you can press the button as many times as you want.</p>
+  
+  <p>If you pressed the button and it didn't tweet, or if you're having problems following any of this guide, find Kasra and let's figure out what's not working.</p>
+  
+  <p>Feel free to play around with the Photon more, there's <em>lots</em> that you can do with it. When you're done, please hold down the SETUP button on it for 3 seconds to clear its memory so that the next person that uses it doesn't accidentally tweet using your credentials.</p>
   </div>
 </section>
 
